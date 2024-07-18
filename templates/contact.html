@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}İletişim{% endblock %}
+
+{% block content %}
+<main class="container mt-5">
+    <section class="contact-form">
+        <h2>İletişim</h2>
+        <form action="{{ url_for('contact') }}" method="post">
+            <div class="form-group">
+                <label for="name"><h3>Ad, Soyad</h3></label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email"><h3>Mail Adresi</h3></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message"><h3>Mesaj</h3></label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Mesaj Gönder</button>
+        </form>
+    </section><br>
+
+    <section class="contact-info mt-5">
+        <h2>Lynx İletişim Adresleri</h2>
+        <p>Mail: lynxgamingmanagement@gmail.com</p>
+        <p>Telefon: *Henüz Mevcut Değil*</p>
+    </section><br>
+    <section class="contact-info mt-5">
+        <h2>Kurucu Kadromuz</h2>
+        <p>Ad, Soyad : Hasan Yiğit Öztepe</p>
+        <p>Mail: hyoztepe@gmail.com</p>
+        <p>Telefon: *Henüz Mevcut Değil*</p>
+        <br>
+        <br>
+        <p>Ad, Soyad : Emir Haydar Sarı</p>
+        <p>Mail: emirhs@gmail.com</p>
+        <p>Telefon: *Henüz Mevcut Değil*</p>
+        <br>
+        <br>
+    </section>
+</main>
+{% include 'footer.html' %}
+{% endblock %}

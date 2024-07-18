@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Yorumu Düzenle{% endblock %}
+
+{% block content %}
+<main class="container mt-5">
+    <h2>Yorumu Düzenle</h2>
+    <form action="{{ url_for('edit_comment', comment_id=comment.id) }}" method="post">
+        <div class="form-group">
+            <label for="content">Yorum</label>
+            <textarea class="form-control" id="content" name="content" rows="5" required>{{ comment.content }}</textarea>
+        </div>
+        <div class="btn-container">
+            <button type="submit" class="btn btn-primary btn-sm">Güncelle</button>
+        </div>
+    </form>
+</main>
+{% endblock %}

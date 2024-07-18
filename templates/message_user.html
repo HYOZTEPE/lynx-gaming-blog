@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ user.username }}'ye Mesaj Gönder{% endblock %}
+
+{% block content %}
+<main class="container mt-5">
+    <h2>{{ user.username }}'ye Mesaj Gönder</h2>
+    <form action="{{ url_for('message_user', user_id=user.id) }}" method="post">
+        <div class="form-group">
+            <label for="subject">Konu</label>
+            <input type="text" id="subject" name="subject" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Mesaj</label>
+            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Gönder</button>
+    </form><br>
+    <form action="{{ url_for('admin_users') }}" method="get">
+        <button type="submit" class="btn btn-sm btn-danger">Geri Dön</button>
+    </form>
+</main>
+{% endblock %}

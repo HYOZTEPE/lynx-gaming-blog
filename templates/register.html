@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Kayıt Ol{% endblock %}
+
+{% block content %}
+<main>
+    <div class="modal-content">
+        <h2>Kayıt Ol</h2>
+        <form action="{{ url_for('register') }}" method="post" class="auth-form">
+            <label for="username">Kullanıcı Adı:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Şifre:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirm_password">Şifreyi Onayla:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+            
+            <button type="submit">Kayıt Ol</button>
+        </form>
+        <p>Hesabınız var mı? <a href="{{ url_for('login') }}" id="login-link">Giriş Yap</a></p>
+    </div>
+</main>
+{% endblock %}

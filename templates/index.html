@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Ana Sayfa{% endblock %}
+
+{% block content %}
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Lynx Gaming Blog</h1>
+            <h2>En Güncel Oyun Haberleri</h2>
+            <p>Oyun dünyasındaki en son gelişmeleri burada bulabilirsiniz.</p>
+            <a href="{{ url_for('all_news') }}" class="cta-button">Haberleri Keşfet</a>
+        </div>
+    </section>
+
+    <section class="latest-news">
+        <h2>En Güncel Haberler</h2>
+        <div class="news-grid">
+            {% for news_item in news_items[:8] %}
+            <article class="news-item">
+                <img src="{{ news_item.image_url }}" alt="{{ news_item.title }}">
+                <h3>{{ news_item.title }}</h3>
+                <p>{{ news_item.description | striptags | truncate(150) }}...</p>
+                <a href="{{ url_for('news_detail', news_id=news_item.id) }}" class="read-more">Daha Fazla Oku</a>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% include 'footer.html' %}
+{% endblock %}

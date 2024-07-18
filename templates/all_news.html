@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Tüm Haberler{% endblock %}
+
+{% block content %}
+<main>
+    <section class="latest-news">
+        <h2>Tüm Haberler</h2><br>
+        <form method="GET" action="{{ url_for('all_news') }}" class="search-form">
+            <input type="text" name="search" placeholder="Haberlerde ara..." value="{{ request.args.get('search', '') }}">
+            <select name="sort_by">
+                <option value="date" {% if request.args.get('sort_by') == 'date' %}selected{% endif %}>Yayınlama Tarihine Göre</option>
+                <option value="title" {% if request.args.get('sort_by') == 'title' %}selected{% endif %}>A'dan Z'ye</option>
+                <option value="comments" {% if request.args.get('sort_by') == 'comments' %}selected{% endif %}>Yorum Sayısına Göre</option>
+            </select>
+            <button type="submit">Ara ve Sırala</button>
+        </form><br>
+        <div class="news-grid">
+            {% for news_item in news_items %}
+            <article class="news-item">
+                <img src="{{ news_item.image_url }}" alt="{{ news_item.title }}">
+                <h3>{{ news_item.title }}</h3>
+                <p>{{ news_item.description | striptags | truncate(150) }}...</p>
+                <a href="{{ url_for('news_detail', news_id=news_item.id) }}" class="read-more">Daha Fazla Oku</a>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% include 'footer.html' %}
+{% endblock %}
