@@ -32,9 +32,9 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Gerçek SMTP sunucusunu kullanı
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = 'lynxgamingmanagement@gmail.com'  # Gerçek e-posta adresinizi kullanın
-app.config['MAIL_PASSWORD'] = 'omdyqrtmvvinmhav'  # Gerçek e-posta parolanızı kullanın
-app.config['MAIL_DEFAULT_SENDER'] = 'lynxgamingmanagement@gmail.com'  # Gönderici e-posta adresinizi kullanın
+app.config['MAIL_USERNAME'] = 'X@gmail.com'  # Gerçek e-posta adresinizi kullanın
+app.config['MAIL_PASSWORD'] = 'X'  # Gerçek e-posta parolanızı kullanın
+app.config['MAIL_DEFAULT_SENDER'] = 'X@gmail.com'  # Gönderici e-posta adresinizi kullanın
 
 mail = Mail(app)
 s = URLSafeTimedSerializer(app.config['SECRET_KEY'])
